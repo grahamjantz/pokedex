@@ -49,14 +49,17 @@ const Poke = () => {
     const goBack = () => {
         id--
         setFind(id)
+        setNum(0)
     }
     const goNext = () => {
         id++
         setFind(id)
+        setNum(0)
     }
     const goRandom = () => {
         id = Math.floor(Math.random() * 805)
         setFind(id)
+        setNum(0)
     }
 
     const handleSlideBack = () => {
