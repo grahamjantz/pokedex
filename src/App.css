@@ -1,6 +1,6 @@
 .App {
   width: 100%;
-  padding: 2em;
+  margin: 2em 0;
   text-align: center;
   display: flex;
   gap: 2em;
@@ -34,11 +34,51 @@
   border: 1px solid var(--main-red);
   border-radius: 20px;
   background-color: white;
+  box-shadow: 5px 5px 10px black;
 }
+
+.slideshow-master {
+  width: 300px;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1em;
+}
+
+.slideshow-container {
+  width: 200px;
+  overflow-x: hidden;
+}
+
+.slideshow {
+  width: 200px;
+  display: flex;
+  transition: 1s ease-in-out;
+}
+
 
 .img {
   width: 200px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.img-container {
+  width: 200px;
   height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animated {
+  width: 200px;
+  height: auto;
+  max-height: 180px;
 }
 
 .type {
@@ -91,6 +131,11 @@
   width: 100%;
   padding: 0.5em;
   border-radius: 10px;
+  box-shadow: 3px 3px 10px black;
+}
+
+.search button {
+  margin-left: 1em;
 }
 
 button {
@@ -101,6 +146,7 @@ button {
   border-radius: 10px;
   font-family: 'poke-solid';
   letter-spacing: 0.3em;
+  box-shadow: 5px 5px 10px black;
 }
 
 .nav {
@@ -124,4 +170,5 @@ button:hover {
 }
 button:active {
   background-color: #2f3d63;
+  box-shadow: 2px 2px 5px black;
 }
