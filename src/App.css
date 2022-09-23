@@ -41,18 +41,19 @@
   height: 200px;
 }
 
+.type {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .name {
   letter-spacing: 0.5em;
 }
 
-.type {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-}
-
 .abilities {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

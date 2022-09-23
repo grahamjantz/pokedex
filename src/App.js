@@ -1,17 +1,16 @@
 import './App.css';
 import { useEffect } from 'react';
-import PokeAPI from './PokeAPI'
+// import PokeAPI from './PokeAPI'
+import Poke from './Poke'
+
 
 function App() {
 
-  useEffect(() => {
-    // fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-    //   .then(response => response.json())
-  })
 
   return (
     <div className='App'>
-      <PokeAPI />
+      {/* <PokeAPI /> */}
+      <Poke />
     </div>
   );
 }
