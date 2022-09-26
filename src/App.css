@@ -164,11 +164,14 @@ button {
   border: none;
 }
 
-button:hover {
-  cursor: pointer;
-  background-color: #3B4C7A;
-}
-button:active {
-  background-color: #2f3d63;
-  box-shadow: 2px 2px 5px black;
+
+@media only screen and (min-width: 1000px) {
+  button:hover {
+    cursor: pointer;
+    background-color: #3B4C7A;
+  }
+  button:active {
+    background-color: #2f3d63;
+    box-shadow: 2px 2px 5px black;
+  }
 }

@@ -21,6 +21,8 @@ const Poke = () => {
     const [Find, setFind] = useState(1);
     const [inputValue, setInputValue] = useState('')
     let [num, setNum] = useState(0);
+    const [leftDisplay, setLeftDisplay] = useState('white');
+    const [rightDisplay, setRightDisplay] = useState('black');
 
     useEffect(() => {
         async function getData() {
@@ -42,7 +44,7 @@ const Poke = () => {
     }, [Find]);
 
     const Search = () => {
-        if (inputValue !== '') setFind(inputValue)
+        setFind(inputValue)
         setInputValue('')
     }
         
@@ -66,9 +68,11 @@ const Poke = () => {
         switch (num) {
             case -400: 
                 setNum(num += 200)
+                setRightDisplay('black')
                 break;
             case -200:
                 setNum(num += 200)
+                setLeftDisplay('white')
                 break;
             default:
                 setNum(num)
@@ -79,14 +83,18 @@ const Poke = () => {
         switch (num) {
             case 0:
                 setNum(num -= 200)
+                setLeftDisplay('black')
                 break;
             case -200: 
                 setNum(num -= 200)
+                setRightDisplay('white')
                 break;
             default:
                 setNum(num)
         }
     }
+
+    console.log(num)
 
   return (
     <div className='App'>
@@ -100,7 +108,7 @@ const Poke = () => {
         </div>
         <div className='card'>
             <div className='slideshow-master'>
-                <IoChevronBackOutline size={40} onClick={handleSlideBack} style={{position: 'relative', zIndex: 1}}/>
+                <IoChevronBackOutline size={40} onClick={handleSlideBack} style={{position: 'relative', zIndex: 1, color: leftDisplay}}/>
                 <div className='slideshow-container'>
                     <div className='slideshow' style ={{transform: `translateX(${num}px)`}}>
                         <img src={img1} className='img slide' alt={name} />
@@ -110,7 +118,7 @@ const Poke = () => {
                         </div>
                     </div>
                 </div>
-                <IoChevronForwardOutline size={40} onClick={handleSlideForward} style={{position: 'relative', zIndex: 1}}/>
+                <IoChevronForwardOutline size={40} onClick={handleSlideForward} style={{position: 'relative', zIndex: 1, color: rightDisplay}}/>
             </div>
             <h2 className='name'>{name.toUpperCase()}</h2>
             <div className='type'>
