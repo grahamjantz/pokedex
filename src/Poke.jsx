@@ -18,12 +18,12 @@ const Poke = () => {
     const [type, setType] = useState();
     const [abilities, setAbilities] = useState([]);
 
-    const [Find, setFind] = useState(1);
+    const [Find, setFind] = useState('bulbasaur');
     const [inputValue, setInputValue] = useState('')
     let [num, setNum] = useState(0);
     const [leftDisplay, setLeftDisplay] = useState('white');
     const [rightDisplay, setRightDisplay] = useState('black');
-
+    
     useEffect(() => {
         async function getData() {
             fetch(`${baseUrl}/pokemon/${Find}/`)
@@ -44,8 +44,10 @@ const Poke = () => {
     }, [Find]);
 
     const Search = () => {
-        setFind(inputValue)
-        setInputValue('')
+        if (inputValue !== ''){
+            setFind(inputValue.toLowerCase())
+            setInputValue('')
+        }
     }
         
     const goBack = () => {
@@ -94,8 +96,6 @@ const Poke = () => {
         }
     }
 
-    console.log(num)
-
   return (
     <div className='App'>
         <div className='logo'>
@@ -104,7 +104,7 @@ const Poke = () => {
         </div>
         <div className='search'>
             <input type='text' onChange={(e) => {setInputValue(e.target.value)}} value={inputValue}/>
-            <button type='submit' onClick={Search}>Search</button>
+            <button type='submit' onClick={() => Search()}>Search</button>
         </div>
         <div className='card'>
             <div className='slideshow-master'>
