@@ -138,9 +138,9 @@ const Poke = () => {
             </div>
         </div>
         <div className='nav'>
-            <button onClick={goBack}>Back</button>
+            <button onClick={goBack} style={{visibility: id === 1 ? 'hidden' : 'visible' }}>Back</button>
             <button onClick={goRandom}>Random</button>
-            <button onClick={goNext}>Next</button>
+            <button onClick={goNext} style={{visibility: id === 905 ? 'hidden' : 'visible' }}>Next</button>
         </div>
     </div>
     )
