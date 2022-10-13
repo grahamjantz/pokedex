@@ -20,7 +20,7 @@ const Poke = () => {
 
     const [Find, setFind] = useState('bulbasaur');
     const [inputValue, setInputValue] = useState('')
-    let [num, setNum] = useState(0);
+    const [num, setNum] = useState(0);
     const [leftDisplay, setLeftDisplay] = useState('white');
     const [rightDisplay, setRightDisplay] = useState('black');
     
@@ -44,6 +44,9 @@ const Poke = () => {
     }, [Find]);
 
     const Search = () => {
+        setNum(0)
+        setRightDisplay('black')
+        setLeftDisplay('white')
         if (inputValue !== ''){
             setFind(inputValue.toLowerCase())
             setInputValue('')
@@ -54,26 +57,32 @@ const Poke = () => {
         id--
         setFind(id)
         setNum(0)
+        setRightDisplay('black')
+        setLeftDisplay('white')
     }
     const goNext = () => {
         id++
         setFind(id)
         setNum(0)
+        setRightDisplay('black')
+        setLeftDisplay('white')
     }
     const goRandom = () => {
         id = Math.floor(Math.random() * 805)
         setFind(id)
         setNum(0)
+        setRightDisplay('black')
+        setLeftDisplay('white')
     }
 
     const handleSlideBack = () => {
         switch (num) {
             case -400: 
-                setNum(num += 200)
+                setNum(-200)
                 setRightDisplay('black')
                 break;
             case -200:
-                setNum(num += 200)
+                setNum(0)
                 setLeftDisplay('white')
                 break;
             default:
@@ -84,11 +93,11 @@ const Poke = () => {
     const handleSlideForward = () => {
         switch (num) {
             case 0:
-                setNum(num -= 200)
+                setNum(-200)
                 setLeftDisplay('black')
                 break;
             case -200: 
-                setNum(num -= 200)
+                setNum(-400)
                 setRightDisplay('white')
                 break;
             default:
